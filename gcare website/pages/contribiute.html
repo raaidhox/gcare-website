@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gcare</title>
+    <link rel="stylesheet" href="../css/gcare.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <section class="nav-bar">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="Aboutus.html">About us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="contribiute.html">Contribute</a></li>
+                    <li id = "nav-events"><a href="events.html">Events</a></li>
+                </ul>
+            </section>
+        </nav>
+    </header>
+
+    <div class="contribitue">
+        <h3>contribiture with your time</h3>
+    </div>
+
+    <form class="googleform" name="googleform" id="googleform" target="_top" method="POST" onsubmit="myFunction()" action="https://script.google.com/macros/s/AKfycbxM8fhEkTugS3w3k9_caBF7Inlt2UJtiPjAfRgOjQ7GZholMPLwQiH9gk_8J1RFLQb8/exec">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        
+        <label>Sex:</label>
+        <input type="radio" id="male" name="sex" value="Male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="Female" required>
+        <label for="female">Female</label><br><br>
+        
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" name="contact" required><br><br>
+        
+        <button type="submit" class="btn-default btn" name="submit" access="false" id = "submit"  >Submit</button>
+    </form>
+
+
+    <div class="donate">
+        <h3>donate</h3>
+<section class="paypal-payment-gateway">
+    <div id="paypal-button-container-P-3NR420993M194852KM3V2YQY"></div>
+    <script src="https://www.paypal.com/sdk/js?client-id=ATgxYJwsVs-NwlBe5DD0MT32gssxeAOFNbJthDrHdn2O7fCUhn4c3QVeK8N8lyByUJ_jujygxW1KLOA4&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
+    paypal.Buttons({
+          style: {
+          shape: 'rect',
+          color: 'black',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+        createSubscription: function(data, actions) {
+            return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-3NR420993M194852KM3V2YQY'
+        });
+      },
+        onApprove: function(data, actions) {
+        alert(data.subscriptionID) ; alert("thank you for ur donation");
+      }
+  }).render('#paypal-button-container-P-3NR420993M194852KM3V2YQY'); // Renders the PayPal button
+</script>
+
+        </div>
+    </section>
+    <footer>
+        trade mark g care 2024 home page 
+    </footer>
+
+    <script>
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzD4VbJ5RffmzuurmD1jULGFiL3a74ieSqF1kd9o_xh3Lqa9qssgzQsniPtF3-28API/exec'
+
+
+const form = document.forms['googleform']
+
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you! your form is submitted successfully." ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
+
+    </script>
+
+</body>
+</html>
+
